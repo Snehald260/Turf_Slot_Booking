@@ -57,6 +57,11 @@ func (c *Config) DBConnectionString() string {
 	)
 }
 
+// RedisAddr returns the Redis address in host:port form.
+func (c *Config) RedisAddr() string {
+	return fmt.Sprintf("%s:%s", c.RedisHost, c.RedisPort)
+}
+
 func getEnv(key, fallback string) string {
 	if val, ok := os.LookupEnv(key); ok {
 		return val
